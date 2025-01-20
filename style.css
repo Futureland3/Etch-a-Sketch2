@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+body{
+    background-color: rgb(255, 62, 62);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+h1{
+    font-size: 3em;
+    text-align: center;
+    font-family: "Press Start 2P", serif;
+    margin: 1em;
+    margin-bottom: 0;
+    color: yellow;
+}
+
+.container{
+    display: flex;
+    background-color: white;
+    /* border: 0.5vw solid white; */
+    margin: auto;
+    width: 600px;
+    height: 600px;
+    flex-direction: column;
+}
+
+.colOut {
+    display: flex;
+    height: fit-content;
+    /* position: relative; */
+    flex: 1;
+    color: black;
+    /* border: 0.2vw solid white; */
+    /* justify-content: center; */
+    padding: 0;
+    margin: 0;
+    min-height: 5px;
+    min-width: 5px;
+}
+
+/* .colOut:hover{
+    background-color: black;
+} */
+
+.colIn{
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    /* border: 1px solid white; */
+    margin: 0;
+    padding: 0;
+}
+
+.colIn:hover{
+    background-color: black;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    margin: 3em;
+    gap: 1em;
+}
+
+.options {
+    display: flex;
+    justify-content: center;
+    margin: 3em;
+}
