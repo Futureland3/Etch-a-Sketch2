@@ -53,10 +53,10 @@ h1{
     margin: 0;
     padding: 0;
 }
-
+/* 
 .colIn:hover{
     background-color: black;
-}
+} */
 
 .buttons {
     display: flex;

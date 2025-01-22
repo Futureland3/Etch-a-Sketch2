@@ -5,17 +5,11 @@ const body = document.querySelector("body");
 const options = document.querySelector(".options")
 const clear = document.querySelector(".clear");
 
-addGrid(16);
+addGrid(2);
 
 const divs = document.querySelectorAll(".colIn");
-accept.addEventListener("click", () => {
-    if(input.value > 100){
-        alert("Too many grids! Please keep it below 101!");
-        return;
-    }
-    deleteGrids();
-    addGrid();
-});
+
+
 
 divs.forEach(div =>{
     div.addEventListener("mouseover", () =>{
@@ -48,3 +42,18 @@ function deleteGrids(){
     container.textContent = "";
 }
 
+accept.addEventListener("click", () => {
+    if(input.value > 100){
+        alert("Too many grids! Please keep it below 101!");
+        return;
+    }
+    deleteGrids();
+    addGrid();
+    const divs = document.querySelectorAll(".colIn");
+    divs.forEach(div =>{
+        div.addEventListener("mouseover", () =>{
+            div.setAttribute("style", "background: black;");
+            console.log("does this work?");
+        })
+    })
+});
