@@ -5,16 +5,42 @@ const body = document.querySelector("body");
 const options = document.querySelector(".options")
 const clear = document.querySelector(".clear");
 
+const black = document.querySelector(".black");
+const white = document.querySelector(".white");
+const gray = document.querySelector(".gray");
+const rainbow = document.querySelector(".rainbow");
+
+let color = "black";
+
+black.addEventListener("click", ()=>{
+    color = "black";
+});
+
+white.addEventListener("click", () => {
+    color = "white";
+});
+
+gray.addEventListener("click", () => {
+    color = "gray";
+});
+
+rainbow.addEventListener("click", ()=>{
+    color = "random";
+});
+
+function random_rgba() {
+    var o = Math.round, r = Math.random, s = 255;
+    return 'rgba(' + o(r()*s) + ',' + o(r()*s) + ',' + o(r()*s) + ')';
+}
+
 addGrid(16);
 
 const divs = document.querySelectorAll(".colIn");
-// let n = input.value;
-
-
 
 divs.forEach(div =>{
     div.addEventListener("mouseover", () =>{
-        div.setAttribute("style", "background: black;");
+        if(color !== "black" && color !== "white" && color !== "gray") color = random_rgba();
+        div.style.background = color;
     })
 })
 
@@ -34,9 +60,10 @@ function addGrid(n = input.value){ //n = input.value)
     }
 }
 
+
 clear.addEventListener("click", ()=>{
     divs.forEach(div => {
-        div.setAttribute("style", "background: white");
+        div.style.background = "white";
     })
 });
 
@@ -54,8 +81,8 @@ accept.addEventListener("click", () => {
     const divs = document.querySelectorAll(".colIn");
     divs.forEach(div =>{
         div.addEventListener("mouseover", () =>{
-            div.setAttribute("style", "background: black;");
-            console.log("does this work?");
+            if(color !== "black" && color !== "white" && color !== "gray") color = random_rgba();
+            div.style.background = color;
         })
     });
 
@@ -64,5 +91,5 @@ accept.addEventListener("click", () => {
             div.setAttribute("style", "background: white");
         })
     });
-    
+
 });
