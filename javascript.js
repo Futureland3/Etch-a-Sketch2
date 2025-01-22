@@ -5,23 +5,23 @@ const body = document.querySelector("body");
 const options = document.querySelector(".options")
 const clear = document.querySelector(".clear");
 
-addGrid(2);
+addGrid(16);
 
 const divs = document.querySelectorAll(".colIn");
+// let n = input.value;
 
 
 
 divs.forEach(div =>{
     div.addEventListener("mouseover", () =>{
         div.setAttribute("style", "background: black;");
-        console.log("does this work?");
     })
 })
 
 
 //FUNCTIONS
 
-function addGrid(n = input.value){
+function addGrid(n = input.value){ //n = input.value)
     for(let i = 0; i<n;i++){
         const outerDiv = document.createElement("div");
         outerDiv.classList.add("colOut");
@@ -35,7 +35,9 @@ function addGrid(n = input.value){
 }
 
 clear.addEventListener("click", ()=>{
-    // css background = default color
+    divs.forEach(div => {
+        div.setAttribute("style", "background: white");
+    })
 });
 
 function deleteGrids(){
@@ -55,5 +57,12 @@ accept.addEventListener("click", () => {
             div.setAttribute("style", "background: black;");
             console.log("does this work?");
         })
-    })
+    });
+
+    clear.addEventListener("click", ()=>{
+        divs.forEach(div => {
+            div.setAttribute("style", "background: white");
+        })
+    });
+    
 });
