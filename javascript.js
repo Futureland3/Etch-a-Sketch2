@@ -41,6 +41,7 @@ divs.forEach(div =>{
     div.addEventListener("mouseover", () =>{
         if(color !== "black" && color !== "white" && color !== "gray") color = random_rgba();
         div.style.background = color;
+        div.style.opacity = parseFloat(div.style.opacity) + 0.1;
     })
 })
 
@@ -54,6 +55,7 @@ function addGrid(n = input.value){ //n = input.value)
         for(let j = 0; j<n;j++){
             const innerDiv = document.createElement("div");
             innerDiv.classList.add("colIn");
+            innerDiv.style.opacity = 0.1;
             outerDiv.appendChild(innerDiv);
         }
         container.appendChild(outerDiv);
@@ -83,12 +85,15 @@ accept.addEventListener("click", () => {
         div.addEventListener("mouseover", () =>{
             if(color !== "black" && color !== "white" && color !== "gray") color = random_rgba();
             div.style.background = color;
+            // div.style.opacity = parseFloat(div.style.opacity) + 0.1;
+
         })
     });
 
     clear.addEventListener("click", ()=>{
         divs.forEach(div => {
             div.setAttribute("style", "background: white");
+            div.setAttribute("style", ".opacity{0.9;}");
         })
     });
 
