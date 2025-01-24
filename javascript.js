@@ -9,6 +9,7 @@ const black = document.querySelector(".black");
 const white = document.querySelector(".white");
 const gray = document.querySelector(".gray");
 const rainbow = document.querySelector(".rainbow");
+const toggle = document.querySelector(".toggle");
 
 let color = "black";
 
@@ -55,12 +56,42 @@ function addGrid(n = input.value){ //n = input.value)
         for(let j = 0; j<n;j++){
             const innerDiv = document.createElement("div");
             innerDiv.classList.add("colIn");
-            innerDiv.style.opacity = 0.1;
+            // innerDiv.style.opacity = 0.1;
+            let op = false; //if true then opacity is on. If false, then it's off.
             outerDiv.appendChild(innerDiv);
         }
         container.appendChild(outerDiv);
     }
 }
+
+toggle.addEventListener("click", () => {
+    if(toggle.value == "off"){
+        divs.forEach(div => {
+            toggleOn();
+        });
+        toggle.value = "on";
+        toggle.textContent = "Turn Opacity Off";
+    }
+    else if(toggle.value == "on"){
+        divs.forEach(div =>{
+            toggleOff();
+        });
+        toggle.value = "off";
+        toggle.textContent = "Turn Opacity On";
+    }
+});
+
+function toggleOn(){
+    divs.forEach(div =>{
+        div.style.opacity = 0.1;
+    });
+};
+
+function toggleOff(){
+    divs.forEach(div =>{
+        div.style.opacity = 1;
+    });
+};
 
 
 clear.addEventListener("click", ()=>{
@@ -78,6 +109,12 @@ accept.addEventListener("click", () => {
         alert("Too many grids! Please keep it below 101!");
         return;
     }
+    if(isNaN(parseInt(input.value))){
+        alert("Enter a number");
+        return;
+    };
+
+    console.log(parseInt(input.value));
     deleteGrids();
     addGrid();
     const divs = document.querySelectorAll(".colIn");
@@ -85,7 +122,7 @@ accept.addEventListener("click", () => {
         div.addEventListener("mouseover", () =>{
             if(color !== "black" && color !== "white" && color !== "gray") color = random_rgba();
             div.style.background = color;
-            // div.style.opacity = parseFloat(div.style.opacity) + 0.1;
+            div.style.opacity = parseFloat(div.style.opacity) + 0.1;
 
         })
     });
@@ -93,7 +130,6 @@ accept.addEventListener("click", () => {
     clear.addEventListener("click", ()=>{
         divs.forEach(div => {
             div.setAttribute("style", "background: white");
-            div.setAttribute("style", ".opacity{0.9;}");
         })
     });
 
